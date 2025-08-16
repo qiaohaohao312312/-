@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>从构树到树构</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Three.js 主库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r158/three.min.js"></script>
+    <!-- 备用CDN -->
+    <script>
+        if (typeof THREE === 'undefined') {
+            document.write('<script src="https://unpkg.com/three@0.158.0/build/three.min.js"><\/script>');
+        }
+    </script>
+    <!-- OrbitControls -->
+    <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+    <!-- 备用OrbitControls -->
+    <script>
+        if (typeof THREE.OrbitControls === 'undefined') {
+            document.write('<script src="https://unpkg.com/three@0.158.0/examples/js/controls/OrbitControls.js"><\/script>');
+        }
+    </script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>🌳 从构树到树构</h1>
+            <p>上传你的作品，让它成为树上的一片叶子</p>
+        </header>
+        
+        <div id="upload-section">
+            <div class="upload-container">
+                <input type="file" id="photo-upload" accept="image/*" multiple>
+                <label for="photo-upload" class="upload-button">
+                    <span>📷 上传作品</span>
+                </label>
+                <p class="upload-hint">支持 JPG, PNG, GIF 格式</p>
+            </div>
+        </div>
+
+        <div id="tree-container">
+            <canvas id="tree-canvas"></canvas>
+        </div>
+
+        <!-- 照片查看模态框 -->
+        <div id="photo-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="photo-info">
+                    <h3 id="photo-title">作品标题</h3>
+                    <p id="photo-date">上传时间</p>
+                </div>
+                <div class="photo-display">
+                    <img id="modal-photo" src="" alt="用户上传的作品">
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>正在加载3D树...</p>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
